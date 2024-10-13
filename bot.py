@@ -4,3 +4,8 @@ import openai
 
 
 bot = telebot.TeleBot(BOT_API)
+
+
+
+print("Bot Started...")
+bot.polling()
