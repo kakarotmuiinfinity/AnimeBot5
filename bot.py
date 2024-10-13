@@ -1,12 +1,12 @@
 import asyncio
 from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-TOKEN = "7712183768:AAFB_5sDCNLNKcMwhvyjLP-nSFqkmSkiXkI"
+TOKEN = "7712183768:AAFB_5sDCNLNKcMwhvyjLP-nSFqkmSkiXkI"  # Replace with your actual bot token
 
-async def start(update: Update, context):
-    # Send a 🔥 reaction
-    await update.message.reply_text("🔥")
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    # React to the message with 🔥 emoji
+    await update.message.react("🔥")
     
     # Send a sticker with the specified sticker ID
     sticker_message = await context.bot.send_sticker(chat_id=update.effective_chat.id, sticker="CAACAgUAAxkBAAIgL2cHg1wOoOZ7uBA5Q8uh8wF2DN1xAAIEAAPBJDExieUdbguzyBAeBA")
@@ -27,4 +27,4 @@ if __name__ == "__main__":
 
     # Start the bot
     application.run_polling()
-  
+    
